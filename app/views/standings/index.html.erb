@@ -1,0 +1,52 @@
+<%- model_class = Standing -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:tournament_id) %></th>
+      <th><%= model_class.human_attribute_name(:team_id) %></th>
+      <th><%= model_class.human_attribute_name(:wins) %></th>
+      <th><%= model_class.human_attribute_name(:losses) %></th>
+      <th><%= model_class.human_attribute_name(:ties) %></th>
+      <th><%= model_class.human_attribute_name(:points) %></th>
+      <th><%= model_class.human_attribute_name(:scored_goals) %></th>
+      <th><%= model_class.human_attribute_name(:conceded_goals) %></th>
+      <th><%= model_class.human_attribute_name(:goal_difference) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @standings.each do |standing| %>
+      <tr>
+        <td><%= link_to standing.id, standing_path(standing) %></td>
+        <td><%= standing.tournament_id %></td>
+        <td><%= standing.team_id %></td>
+        <td><%= standing.wins %></td>
+        <td><%= standing.losses %></td>
+        <td><%= standing.ties %></td>
+        <td><%= standing.points %></td>
+        <td><%= standing.scored_goals %></td>
+        <td><%= standing.conceded_goals %></td>
+        <td><%= standing.goal_difference %></td>
+        <td><%=l standing.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_standing_path(standing), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      standing_path(standing),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_standing_path,
+            :class => 'btn btn-primary' %>

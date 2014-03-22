@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tournament_id: 1
+  team_id: 1
+  wins: 1
+  losses: 1
+  ties: 1
+  points: 1
+  scored_goals: 1
+  conceded_goals: 1
+  goal_difference: 1
+
+two:
+  tournament_id: 1
+  team_id: 1
+  wins: 1
+  losses: 1
+  ties: 1
+  points: 1
+  scored_goals: 1
+  conceded_goals: 1
+  goal_difference: 1

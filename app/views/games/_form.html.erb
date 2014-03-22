@@ -1,0 +1,56 @@
+<%= form_for @game, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :home_team_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :home_team_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :away_team_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :away_team_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tournament_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :tournament_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :home_score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :home_score, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :away_score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :away_score, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :result, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :result, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :week, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :week, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :round, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :round, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                games_path, :class => 'btn' %>
+  </div>
+<% end %>

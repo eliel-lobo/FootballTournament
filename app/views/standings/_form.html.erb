@@ -1,0 +1,62 @@
+<%= form_for @standing, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :tournament_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :tournament_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :team_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :team_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :wins, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :wins, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :losses, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :losses, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ties, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :ties, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :points, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :points, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :scored_goals, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :scored_goals, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :conceded_goals, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :conceded_goals, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :goal_difference, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :goal_difference, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                standings_path, :class => 'btn' %>
+  </div>
+<% end %>
