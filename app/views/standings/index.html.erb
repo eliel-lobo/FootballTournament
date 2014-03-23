@@ -5,34 +5,33 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:tournament_id) %></th>
+      <th></th>	
       <th><%= model_class.human_attribute_name(:team_id) %></th>
-      <th><%= model_class.human_attribute_name(:wins) %></th>
-      <th><%= model_class.human_attribute_name(:losses) %></th>
-      <th><%= model_class.human_attribute_name(:ties) %></th>
-      <th><%= model_class.human_attribute_name(:points) %></th>
-      <th><%= model_class.human_attribute_name(:scored_goals) %></th>
-      <th><%= model_class.human_attribute_name(:conceded_goals) %></th>
-      <th><%= model_class.human_attribute_name(:goal_difference) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>PJ</th>
+      <th>PG</th>
+      <th>PE</th>
+      <th>PP</th>
+      <th>GF</th>
+      <th>GC</th>
+      <th>GD</th>
+      <th>Pts.</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @standings.each do |standing| %>
+    <% 1.upto(@standings.size) do |index| %>
+    <% standing = @standings[index-1] %>
       <tr>
-        <td><%= link_to standing.id, standing_path(standing) %></td>
-        <td><%= standing.tournament_id %></td>
-        <td><%= standing.team_id %></td>
+      	<td><%= index %></td>
+        <td><%= standing.team.name %></td>
+        <td><%= standing.wins + standing.losses + standing.ties%></td>
         <td><%= standing.wins %></td>
-        <td><%= standing.losses %></td>
         <td><%= standing.ties %></td>
-        <td><%= standing.points %></td>
+        <td><%= standing.losses %></td>
         <td><%= standing.scored_goals %></td>
         <td><%= standing.conceded_goals %></td>
         <td><%= standing.goal_difference %></td>
-        <td><%=l standing.created_at %></td>
+        <td><%= standing.points %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_standing_path(standing), :class => 'btn btn-mini' %>

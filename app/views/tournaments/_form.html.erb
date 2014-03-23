@@ -11,7 +11,13 @@
       <%= f.text_field :state, :class => 'text_field' %>
     </div>
   </div>
-
+  
+   <div class="control-group">
+   	<div class="controls">
+	   <%= select_tag "teams", options_from_collection_for_select(@teams, "id", "name"), multiple: true%>
+	 </div>
+   </div>
+	
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

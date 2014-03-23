@@ -2,7 +2,11 @@ class StandingsController < ApplicationController
   # GET /standings
   # GET /standings.json
   def index
-    @standings = Standing.all
+    if(session[:tournament])
+      @standings = Standing.find_ordered session[:tournament].id
+    else
+      @standings = Standing.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

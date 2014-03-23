@@ -5,32 +5,26 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:home_team_id) %></th>
-      <th><%= model_class.human_attribute_name(:away_team_id) %></th>
-      <th><%= model_class.human_attribute_name(:tournament_id) %></th>
-      <th><%= model_class.human_attribute_name(:home_score) %></th>
-      <th><%= model_class.human_attribute_name(:away_score) %></th>
-      <th><%= model_class.human_attribute_name(:result) %></th>
-      <th><%= model_class.human_attribute_name(:week) %></th>
-      <th><%= model_class.human_attribute_name(:round) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Local</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Visitante</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= link_to game.id, game_path(game) %></td>
-        <td><%= game.home_team_id %></td>
-        <td><%= game.away_team_id %></td>
-        <td><%= game.tournament_id %></td>
+      	<td><%= image_tag(game.home_team.logo, size:"60x60") %></td>
+        <td><%= game.home_team.name %></td>
         <td><%= game.home_score %></td>
+        <td><strong>Vs.</strong></td>
         <td><%= game.away_score %></td>
-        <td><%= game.result %></td>
-        <td><%= game.week %></td>
-        <td><%= game.round %></td>
-        <td><%=l game.created_at %></td>
+        <td><%= game.away_team.name %></td>
+        <td><%= image_tag(game.away_team.logo, size:"60x60") %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_game_path(game), :class => 'btn btn-mini' %>
