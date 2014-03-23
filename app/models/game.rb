@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   belongs_to :tournament
   
   def self.gamesByTournament (tournament_id)
-    Game.find(:all, :conditions => ["tournament_id = ?", tournament_id])
+    Game.find(:all, :conditions => ["tournament_id = ?", tournament_id], :order => "id ASC")
     #Game.all
   end
 end
